@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+int a= 0;
 long int produtorio(long int n){
     if(n == 1) return n;
     return n * produtorio(n-1);
@@ -24,6 +24,8 @@ void som3(int n){
 int fibonacci(int n){
     if(n == 0) return 0;
     if(n == 1) return 1;
+    a++;
+    printf("%d ",a);
     return fibonacci(n-1) + fibonacci(n-2);
 }
 
@@ -35,7 +37,7 @@ int main(){
     printf("%d\n", a);
     printf("\n");*/
     
+    printf("%d\n",fibonacci(9999) + fibonacci(10000));
     printf("%d\n",fibonacci(9999));
-    
     return 0;
 }
