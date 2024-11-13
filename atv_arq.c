@@ -11,23 +11,21 @@ void exemplo1() {
         return;
     }
     // leitura
-    float media[3] = {0,0,0};
+    float media[4];
     float notas[8];
-
     // extraia do arquivo as notas separadas por tabulação,
     // para cada linha. Após, a extração exiba a média das notas
     // de cada aluno.
     // feof()
     // fscanf
-    int i = 0;
     while(!feof(input)){
-        fscanf(input,"%f\t%f\n",&notas[1], &notas[2]);
-        fscanf(input,"%f\t%f\n",&notas[3], &notas[4]);
-        fscanf(input,"%f\t%f\n",&notas[5], &notas[6]);
-        fscanf(input,"%f\t%f\n",&notas[7], &notas[8]);
+        for(int i=0;i<8;i+=2){
+            fscanf(input,"%f\t%f", &notas[i], &notas[i+1]);
+            media[(i/2)] = (notas[i] + notas[i+1])/2;
+        }
     }
-    for(int i =0; i<8;i++){
-        printf("%.2f\n", notas[i]);
+    for(int i =0; i<4;i++){
+        printf("media do aluno %d: %.2f\n",i, media[i]);
     }
     fclose(input);
 }
@@ -49,7 +47,6 @@ void exemplo2(int m, int n,float notas[m][n]) {
         for(int j = 0; j<n;j++){
             if(j%2 == 1) fprintf(out,"\t");
             fprintf(out, "%.2f", notas[i][j]);
-            
         }
         fprintf(out,"\n");
     }

@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug com GDB",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/a.out",  // Caminho para o executável
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,  // Define se o programa será executado em uma janela de terminal externa
+            "MIMode": "gdb",  // Usar o GDB como depurador
+            "setupCommands": [
+                {
+                    "description": "Habilitar a impressão de variáveis",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb",  // Caminho para o GDB (ajuste conforme seu sistema)
+            "preLaunchTask": "build",  // Tarefa de compilação antes de iniciar a depuração
+            "visualizerFile": "${workspaceFolder}/.vscode/visualizers/c++-stl.vsct",  // Opcional, se você tiver visualizadores personalizados
+            "logging": {
+                "engineLogging": true  // Registra informações do depurador
+            }
+        }
+    ]
+}
